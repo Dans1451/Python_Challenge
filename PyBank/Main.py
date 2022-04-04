@@ -9,7 +9,7 @@ from sympy import Ne
 #with open (r"C:\Users\dans1\Desktop\GT Data Analysis\Python HW\Python_Challenge\resources\PyBank\budget_data.csv") as csvfile:
 row_count = 0
 rows = []
-with open (r".\resources\PyBank\budget_data.csv") as csvfile:
+with open (r".\Resources\budget_data.csv") as csvfile:
     budgetCSV = csv.reader(csvfile, delimiter=",")
     next(budgetCSV)
     for row in budgetCSV:
@@ -104,7 +104,7 @@ f"Greatest Decrease in Profits: {Least_Month}"]
 for L in output:
     print(L)
 
-with open('budget_data.txt', 'w') as f:
+with open(r'.\Analysis\budget_data.txt', 'w') as f:
     for line in output:
         f.write(line)
         f.write('\n')

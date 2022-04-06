@@ -1,26 +1,19 @@
+#Dependencies
 import os
 import csv
 
-from sympy import Ne
-
-# CSVpath = os.path.join(".","resources","PyBank", "budget_data.csv" )
-# print(CSVpath)
-#print("resources\PyBank\budget_data.csv")
-#with open (r"C:\Users\dans1\Desktop\GT Data Analysis\Python HW\Python_Challenge\resources\PyBank\budget_data.csv") as csvfile:
+#from sympy import Ne
+csvfile=os.path.join("Resources","budget_data.csv")
 row_count = 0
 rows = []
-with open (r".\Resources\budget_data.csv") as csvfile:
+with open (r".\Resources\budget_data.csv") as csvfile: #Open and read CSV
     budgetCSV = csv.reader(csvfile, delimiter=",")
     next(budgetCSV)
     for row in budgetCSV:
             row_count = row_count+1
             rows.append(row)
 
-#print(f"rows = {rows}")
-# print(row_count)
-# print(rows[0][1])
-# Net_Total = int(rows[86][1]) - int(rows[1][1])
-# print(Net_Total)
+
 months_list = []
 for r in rows:
     months_list.append(str(r[0]))
@@ -42,22 +35,15 @@ for i in range(len(profits)):
     k=len(profits)
     #print("k is" +str(k))
     if i < k-1:
-        change=int(profits[i])-int(profits[i-1])
-        #print (change)
+        change=int(profits[i+1])-int(profits[i])
+        print (change)
         Profit_Changes.append(change)
 total_changes = sum(Profit_Changes)
-#print ("total changes are " + str(total_changes))
+print ("total changes are " + str(total_changes))
 
 
-# current=profits[0]
-# for r in profits:
-#     new=profits[1]
-#     change=int(new)-int(current)
-#     Profit_Changes.append(change)
-#     current = new
-#print(f"Profit_Changes = {Profit_Changes}")
-#print(f"change is {change}")
-Average_changes = total_changes / months
+
+Average_changes = total_changes / (months-1)
 Average_changes =round(Average_changes, 2)
 #print(f"The average change is {Average_changes}")
 

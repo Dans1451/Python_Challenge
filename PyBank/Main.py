@@ -27,16 +27,16 @@ total_profits = sum(profits)
 months=len(profits)
 #print(f"There are {months} months of data")
 
-months_profits = list(zip(months_list, profits))
-#print(months_profits)
+
 
 Profit_Changes=[]
+#print(range(len(profits)))
 for i in range(len(profits)):
     k=len(profits)
     #print("k is" +str(k))
     if i < k-1:
         change=int(profits[i+1])-int(profits[i])
-        print (change)
+        #print (change)
         Profit_Changes.append(change)
 total_changes = sum(Profit_Changes)
 print ("total changes are " + str(total_changes))
@@ -49,13 +49,15 @@ Average_changes =round(Average_changes, 2)
 
 greatest = int(profits[0])
 Least = int(profits[0])
+Profit_Changes.insert(0,0)
+months_profits = list(zip(months_list, Profit_Changes))
+#print(months_profits)
 
-
-for i in range(len(profits)):
-    k=len(profits)
+for i in range(len(Profit_Changes)):
+    k=len(Profit_Changes)
     if i < k-1:
-        if greatest < int(profits[i]):
-            greatest = int(profits[i])
+        if greatest < int(Profit_Changes[i]):
+            greatest = int(Profit_Changes[i])
             #print(greatest)
 
 for i in months_profits:
@@ -65,12 +67,12 @@ for i in months_profits:
         Great_Month = [Great_Month[0], great_string]
         #print(f"The greatest month was {Great_Month}")
 
-for i in range(len(profits)):
-    k=len(profits)
+for i in range(len(Profit_Changes)):
+    k=len(Profit_Changes)
     if i < k-1:
-        if Least > int(profits[i]):
-            Least = int(profits[i])
-            #print(Least)
+        if Least > int(Profit_Changes[i]):
+            Least = int(Profit_Changes[i])
+            print(Least)
 for i in months_profits:
     if i[1] == Least:
         Least_Month = i
